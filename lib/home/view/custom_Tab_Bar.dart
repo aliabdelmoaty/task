@@ -34,7 +34,7 @@ class _CustomTabBarState extends State<CustomTabBar>
           : selectedChoice == 'Service'
               ? 100.h
               : selectedChoice == 'Order'
-                  ? 400.h
+                  ? 350.h
                   : null,
       child: Column(
         children: [

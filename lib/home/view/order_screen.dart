@@ -11,30 +11,35 @@ class Order extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       physics: const NeverScrollableScrollPhysics(),
-      child: Column(
-        children: [
-          SvgPicture.asset(
-            Assets.imagesEmptyState,
-            height: 200.h,
-          ),
-          SizedBox(
-            height: 8.h,
-          ),
-          Text(
-            'No orders found',
-            style: textStyleOutfit.copyWith(
-                fontSize: 22.sp,
-                fontWeight: FontWeight.w700,
-                color: const Color(0xff2E2E2E)),
-          ),
-          Text(
-            'you can place your needed orders to let serve you.',
-            style: textStyleOutfit.copyWith(
-                fontSize: 20.0.sp,
-                fontWeight: FontWeight.w300,
-                color: const Color(0xff707070)),
-          )
-        ],
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 8.0),
+        child: Column(
+          children: [
+            SvgPicture.asset(
+              Assets.imagesEmptyState,
+              height: 200.h,
+            ),
+            SizedBox(
+              height: 8.h,
+            ),
+            Text(
+              'No orders found',
+              textAlign: TextAlign.center,
+              style: textStyleOutfit.copyWith(
+                  fontSize: 22.sp,
+                  fontWeight: FontWeight.w700,
+                  color: const Color(0xff2E2E2E)),
+            ),
+            Text(
+              'you can place your needed orders to let serve you.',
+              textAlign: TextAlign.center,
+              style: textStyleOutfit.copyWith(
+                  fontSize: 20.0.sp,
+                  fontWeight: FontWeight.w300,
+                  color: const Color(0xff707070)),
+            ),
+          ],
+        ),
       ),
     );
   }
