@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:task/constants/assets.dart';
 import 'package:task/constants/constans.dart';
+import 'package:task/home/view/category_screen.dart';
 import 'package:task/home/view/onBorder.dart';
 import 'package:task/home/view/row_buttons.dart';
 
@@ -55,11 +56,15 @@ class HomeScreenBody extends StatelessWidget {
             SizedBox(
               height: 16.h,
             ),
-             const OnBorder(),
-             SizedBox(
+            const OnBorder(),
+            SizedBox(
               height: 24.h,
             ),
             const RowButtons(),
+            SizedBox(
+              height: 16.h,
+            ),
+            const CategoryScreen(),
           ])),
     );
   }
