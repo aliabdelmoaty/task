@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:task/home/view/home_screen_body.dart';
 
 import '../../constants/constans.dart';
 
@@ -27,6 +28,8 @@ class HomeScreen extends StatelessWidget {
           const Spacer(),
         ],
       ),
+      body: const HomeScreenBody(),
+      
     );
   }
 }
