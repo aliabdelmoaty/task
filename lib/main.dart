@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import 'home/view/home_screen.dart';
 // ignore: depend_on_referenced_packages
 
 void main() {
