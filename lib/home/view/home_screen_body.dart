@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:task/constants/assets.dart';
 import 'package:task/constants/constans.dart';
+import 'package:task/home/view/onBorder.dart';
 
 class HomeScreenBody extends StatelessWidget {
   const HomeScreenBody({
@@ -52,7 +53,8 @@ class HomeScreenBody extends StatelessWidget {
             ),
             SizedBox(
               height: 16.h,
-            )
+            ),
+             const OnBorder(),
           ])),
     );
   }
