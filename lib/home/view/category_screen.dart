@@ -9,65 +9,68 @@ class CategoryScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Row(
-          children: [
-            Text(
-              'Categories View',
-              style: textStyleOutfit.copyWith(
-                  fontSize: 14.sp, fontWeight: FontWeight.w400),
-            ),
-            const Spacer(),
-            TextButton(
-                onPressed: () {},
-                child: Text(
-                  'see all',
-                  style: textStyleOutfit.copyWith(
-                      fontSize: 14.sp,
-                      fontWeight: FontWeight.w300,
-                      color: const Color(0xff8C8C8C),
-                      decoration: TextDecoration.underline,
-                      decorationColor: const Color(0xff8C8C8C)),
-                ))
-          ],
-        ),
-        SizedBox(
-          height: 16.h,
-        ),
-         ItemCardCategory(
-          assetName: Assets.imagesConstructions,
-          text: 'Constructions',
-        ),
-        SizedBox(
-          height: 16.h,
-        ),
-        const ItemCardCategory(
-          assetName: Assets.imagesInsurances,
-          text: 'Insurances',
-        ),
-        SizedBox(
-          height: 16.h,
-        ),
-        const ItemCardCategory(
-          assetName: Assets.imagesLegal,
-          text: 'Legal',
-        ),
-        SizedBox(
-          height: 16.h,
-        ),
-        const ItemCardCategory(
-          assetName: Assets.imagesServices,
-          text: 'Buy & Sell',
-        ),
-        SizedBox(
-          height: 16.h,
-        ),
-        const ItemCardCategory(
-          assetName: Assets.imagesAccountingServices,
-          text: 'Accounting Services',
-        )
-      ],
+    return SingleChildScrollView(
+      physics: const NeverScrollableScrollPhysics(),
+      child: Column(
+        children: [
+          Row(
+            children: [
+              Text(
+                'Categories View',
+                style: textStyleOutfit.copyWith(
+                    fontSize: 14.sp, fontWeight: FontWeight.w400),
+              ),
+              const Spacer(),
+              TextButton(
+                  onPressed: () {},
+                  child: Text(
+                    'see all',
+                    style: textStyleOutfit.copyWith(
+                        fontSize: 14.sp,
+                        fontWeight: FontWeight.w300,
+                        color: const Color(0xff8C8C8C),
+                        decoration: TextDecoration.underline,
+                        decorationColor: const Color(0xff8C8C8C)),
+                  ))
+            ],
+          ),
+          SizedBox(
+            height: 16.h,
+          ),
+          const ItemCardCategory(
+            assetName: Assets.imagesConstructions,
+            text: 'Constructions',
+          ),
+          SizedBox(
+            height: 16.h,
+          ),
+          const ItemCardCategory(
+            assetName: Assets.imagesInsurances,
+            text: 'Insurances',
+          ),
+          SizedBox(
+            height: 16.h,
+          ),
+          const ItemCardCategory(
+            assetName: Assets.imagesLegal,
+            text: 'Legal',
+          ),
+          SizedBox(
+            height: 16.h,
+          ),
+          const ItemCardCategory(
+            assetName: Assets.imagesServices,
+            text: 'Buy & Sell',
+          ),
+          SizedBox(
+            height: 16.h,
+          ),
+          const ItemCardCategory(
+            assetName: Assets.imagesAccountingServices,
+            text: 'Accounting Services',
+          )
+        ],
+      ),
     );
   }
 }

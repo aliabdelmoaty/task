@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:task/home/view/home_screen.dart';
 
-import 'home/view/home_screen.dart';
 // ignore: depend_on_referenced_packages
 
 void main() {
@@ -18,11 +19,15 @@ class MyApp extends StatelessWidget {
         minTextAdapt: true,
         splitScreenMode: true,
         builder: (_, child) {
-          return const MaterialApp(
+          SystemChrome.setSystemUIOverlayStyle(
+              const SystemUiOverlayStyle(statusBarColor: Colors.white));
+          return MaterialApp(
+            
+            theme: ThemeData(scaffoldBackgroundColor: Colors.white,),
+            
             debugShowCheckedModeBanner: false,
-            home: HomeScreen(),
+            home: const HomeScreen(),
           );
         });
   }
 }
-

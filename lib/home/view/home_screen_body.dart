@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:task/constants/assets.dart';
 import 'package:task/constants/constants.dart';
 import 'package:task/home/view/custom_Tab_Bar.dart';
@@ -60,7 +59,10 @@ class HomeScreenBody extends StatelessWidget {
             SizedBox(
               height: 24.h,
             ),
-            SizedBox(height: 470.h, child: const CustomTabBar()),
+            const CustomTabBar(),
+            SizedBox(
+              height: 16.h,
+            ),
           ])),
     );
   }

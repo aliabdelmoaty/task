@@ -28,75 +28,84 @@ class _CustomTabBarState extends State<CustomTabBar>
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Card(
-          color: Colors.white,
-          elevation: 0,
-          shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(12.r),
-              side: const BorderSide(
-                color: Color(0xffF2F2F2),
-              )),
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 15.0.w, vertical: 9.h),
-            child: TabBar(
-              indicatorPadding: EdgeInsets.zero,
-              indicatorSize: TabBarIndicatorSize.label,
-              indicatorWeight: 0.1,
-              indicatorColor: Colors.white,
-              onTap: (value) {
-                if (value == 0) {
-                  setState(() {
-                    selectedChoice = 'Categories';
-                  });
-                }
-                if (value == 1) {
-                  setState(() {
-                    selectedChoice = 'Service';
-                  });
-                }
-                if (value == 2) {
-                  setState(() {
-                    selectedChoice = 'Order';
-                  });
-                }
-              },
-              controller: _tabController,
-              tabs: [
-                FittedBox(
-                  child: ContainerTab(
-                    selectedChoice: selectedChoice,
-                    text: 'Categories',
+    return SizedBox(
+      height: selectedChoice == 'Categories'
+          ? 470.h
+          : selectedChoice == 'Service'
+              ? 100.h
+              : selectedChoice == 'Order'
+                  ? 400.h
+                  : null,
+      child: Column(
+        children: [
+          Card(
+            color: Colors.white,
+            elevation: 0,
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(12.r),
+                side: const BorderSide(
+                  color: Color(0xffF2F2F2),
+                )),
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 15.0.w, vertical: 9.h),
+              child: TabBar(
+                indicatorPadding: EdgeInsets.zero,
+                indicatorSize: TabBarIndicatorSize.label,
+                indicatorWeight: 0.1,
+                indicatorColor: Colors.white,
+                onTap: (value) {
+                  if (value == 0) {
+                    setState(() {
+                      selectedChoice = 'Categories';
+                    });
+                  }
+                  if (value == 1) {
+                    setState(() {
+                      selectedChoice = 'Service';
+                    });
+                  }
+                  if (value == 2) {
+                    setState(() {
+                      selectedChoice = 'Order';
+                    });
+                  }
+                },
+                controller: _tabController,
+                tabs: [
+                  FittedBox(
+                    child: ContainerTab(
+                      selectedChoice: selectedChoice,
+                      text: 'Categories',
+                    ),
                   ),
-                ),
-                ContainerTab(
-                  selectedChoice: selectedChoice,
-                  text: 'Service',
-                ),
-                ContainerTab(
-                  selectedChoice: selectedChoice,
-                  text: 'Order',
-                ),
+                  ContainerTab(
+                    selectedChoice: selectedChoice,
+                    text: 'Service',
+                  ),
+                  ContainerTab(
+                    selectedChoice: selectedChoice,
+                    text: 'Order',
+                  ),
+                ],
+              ),
+            ),
+          ),
+          SizedBox(
+            height: 16.h,
+          ),
+          Expanded(
+            child: TabBarView(
+              physics: const NeverScrollableScrollPhysics(),
+              controller: _tabController,
+              children: [
+                SizedBox(height: 150.h, child: const CategoryScreen()),
+                const Service(),
+                const Order(),
               ],
             ),
           ),
-        ),
-        SizedBox(
-          height: 16.h,
-        ),
-        Expanded(
-          child: TabBarView(
-            physics: const NeverScrollableScrollPhysics(),
-            controller: _tabController,
-            children: const [
-              CategoryScreen(),
-              Service(),
-              Order(),
-            ],
-          ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 
