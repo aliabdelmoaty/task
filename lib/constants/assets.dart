@@ -1,35 +1,39 @@
 class Assets {
   Assets._();
   
-  /// Assets for imagesAccounting
-  /// assets/images/accounting.png
-  static const String imagesAccounting = "assets/images/accounting.png";
+  /// Assets for imagesAccountingServices
+  /// assets/images/AccountingServices.svg
+  static const String imagesAccountingServices = "assets/images/AccountingServices.svg";
 
-  /// Assets for imagesBuy&sell
-  /// assets/images/buy&sell.png
-  static const String imagesBuySell = "assets/images/buy&sell.png";
+  /// Assets for imagesConstructions
+  /// assets/images/Constructions.svg
+  static const String imagesConstructions = "assets/images/Constructions.svg";
 
-  /// Assets for imagesImage1
-  /// assets/images/Image1.png
-  static const String imagesImage1 = "assets/images/Image1.png";
+  /// Assets for imagesEmptyState
+  /// assets/images/EmptyState.svg
+  static const String imagesEmptyState = "assets/images/EmptyState.svg";
 
-  /// Assets for imagesImage2
-  /// assets/images/Image2.png
-  static const String imagesImage2 = "assets/images/Image2.png";
+  /// Assets for imagesHand
+  /// assets/images/hand.jpg
+  static const String imagesHand = "assets/images/hand.jpg";
 
   /// Assets for imagesInsurances
-  /// assets/images/insurances.png
-  static const String imagesInsurances = "assets/images/insurances.png";
+  /// assets/images/Insurances.svg
+  static const String imagesInsurances = "assets/images/Insurances.svg";
 
   /// Assets for imagesLegal
-  /// assets/images/legal.png
-  static const String imagesLegal = "assets/images/legal.png";
+  /// assets/images/Legal.svg
+  static const String imagesLegal = "assets/images/Legal.svg";
 
   /// Assets for imagesManPresentationMiniatureBuilding
   /// assets/images/ManPresentationMiniatureBuilding.png
   static const String imagesManPresentationMiniatureBuilding = "assets/images/ManPresentationMiniatureBuilding.png";
 
-  /// Assets for imagesVector
-  /// assets/images/Vector.png
-  static const String imagesVector = "assets/images/Vector.png";
+  /// Assets for imagesPerson
+  /// assets/images/person.jpg
+  static const String imagesPerson = "assets/images/person.jpg";
+
+  /// Assets for imagesServices
+  /// assets/images/Services.svg
+  static const String imagesServices = "assets/images/Services.svg";
 }

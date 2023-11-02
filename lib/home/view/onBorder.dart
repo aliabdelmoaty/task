@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:task/constants/assets.dart';
-import 'package:task/constants/constans.dart';
+import 'package:task/constants/constants.dart';
 import 'package:task/home/view/custom_elevated_botton.dart';
 
 class OnBorder extends StatefulWidget {
@@ -78,8 +78,9 @@ class _OnBorderState extends State<OnBorder> {
                       Image.asset(
                         Assets.imagesManPresentationMiniatureBuilding,
                         height: 142.h,
+                        // color: 
                         width: 142.w,
-                      ),
+                      )
                     ],
                   ),
                 );

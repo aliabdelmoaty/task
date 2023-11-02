@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:task/constants/assets.dart';
-import 'package:task/constants/constans.dart';
-import 'package:task/home/view/category_screen.dart';
+import 'package:task/constants/constants.dart';
+import 'package:task/home/view/custom_Tab_Bar.dart';
 import 'package:task/home/view/onBorder.dart';
-import 'package:task/home/view/row_buttons.dart';
 
 class HomeScreenBody extends StatelessWidget {
   const HomeScreenBody({
@@ -21,7 +21,7 @@ class HomeScreenBody extends StatelessWidget {
             Row(
               children: [
                 Image.asset(
-                  Assets.imagesImage1,
+                  Assets.imagesPerson,
                   height: 28.h,
                   width: 28.w,
                 ),
@@ -30,7 +30,7 @@ class HomeScreenBody extends StatelessWidget {
                   style: textStyleOutfit.copyWith(fontSize: 16.sp),
                 ),
                 Image.asset(
-                  Assets.imagesImage2,
+                  Assets.imagesHand,
                   height: 28.h,
                   width: 28.w,
                 ),
@@ -60,12 +60,17 @@ class HomeScreenBody extends StatelessWidget {
             SizedBox(
               height: 24.h,
             ),
-            const RowButtons(),
-            SizedBox(
-              height: 16.h,
-            ),
-            const CategoryScreen(),
+            SizedBox(height: 470.h, child: const CustomTabBar()),
           ])),
     );
+  }
+}
+
+class Service extends StatelessWidget {
+  const Service({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Center(child: Text('Screen Service'));
   }
 }

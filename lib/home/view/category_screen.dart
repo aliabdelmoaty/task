@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:task/constants/assets.dart';
-import 'package:task/constants/constans.dart';
+import 'package:task/constants/constants.dart';
 
 class CategoryScreen extends StatelessWidget {
   const CategoryScreen({super.key});
@@ -34,8 +35,8 @@ class CategoryScreen extends StatelessWidget {
         SizedBox(
           height: 16.h,
         ),
-        const ItemCardCategory(
-          assetName: Assets.imagesVector,
+         ItemCardCategory(
+          assetName: Assets.imagesConstructions,
           text: 'Constructions',
         ),
         SizedBox(
@@ -56,14 +57,14 @@ class CategoryScreen extends StatelessWidget {
           height: 16.h,
         ),
         const ItemCardCategory(
-          assetName: Assets.imagesBuySell,
+          assetName: Assets.imagesServices,
           text: 'Buy & Sell',
         ),
         SizedBox(
           height: 16.h,
         ),
         const ItemCardCategory(
-          assetName: Assets.imagesAccounting,
+          assetName: Assets.imagesAccountingServices,
           text: 'Accounting Services',
         )
       ],
@@ -91,10 +92,10 @@ class ItemCardCategory extends StatelessWidget {
         padding: const EdgeInsets.all(8.0),
         child: Row(
           children: [
-            Image.asset(
+            SvgPicture.asset(
               assetName,
-              height: 24.h,
-              width: 24.w,
+              height: 28.h,
+              width: 28.w,
             ),
             SizedBox(
               width: 12.w,
