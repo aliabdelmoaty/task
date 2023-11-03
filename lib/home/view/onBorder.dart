@@ -78,7 +78,7 @@ class _OnBorderState extends State<OnBorder> {
                       Image.asset(
                         Assets.imagesManPresentationMiniatureBuilding,
                         height: 142.h,
-                        // color: 
+                        // color:
                         width: 142.w,
                       )
                     ],

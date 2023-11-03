@@ -5,7 +5,7 @@ class DioHelper {
     baseUrl: 'https://jsonplaceholder.typicode.com/',
     receiveDataWhenStatusError: true,
   ));
-  static Future<Map<String, dynamic>> getData({
+  static Future<dynamic> getData({
     required String endPoint,
     Map<String, dynamic>? data,
   }) async {

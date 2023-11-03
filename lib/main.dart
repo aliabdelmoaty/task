@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
           SystemChrome.setSystemUIOverlayStyle(
               const SystemUiOverlayStyle(statusBarColor: Colors.white));
           return BlocProvider(
-            create: (context) => UserCubit(),
+            create: (context) => UserCubit()..getUserData(),
             child: MaterialApp(
               theme: ThemeData(
                 scaffoldBackgroundColor: Colors.white,

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:task/constants/assets.dart';
+
 import 'package:task/constants/constants.dart';
+import 'package:task/home/data/cubit/user_cubit.dart';
 
 class CategoryScreen extends StatelessWidget {
   const CategoryScreen({super.key});
@@ -11,77 +12,86 @@ class CategoryScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       physics: const NeverScrollableScrollPhysics(),
-      child: Column(
-        children: [
-          Row(
+      child: BlocConsumer<UserCubit, UserState>(
+        listener: (context, state) {
+          // TODO: implement listener
+        },
+        builder: (context, state) {
+          return Column(
             children: [
-              Text(
-                'Categories View',
-                style: textStyleOutfit.copyWith(
-                    fontSize: 14.sp, fontWeight: FontWeight.w400),
-              ),
-              const Spacer(),
-              TextButton(
-                  onPressed: () {},
-                  child: Text(
-                    'see all',
+              Row(
+                children: [
+                  Text(
+                    'Categories View',
                     style: textStyleOutfit.copyWith(
-                        fontSize: 14.sp,
-                        fontWeight: FontWeight.w300,
-                        color: const Color(0xff8C8C8C),
-                        decoration: TextDecoration.underline,
-                        decorationColor: const Color(0xff8C8C8C)),
-                  ))
+                        fontSize: 14.sp, fontWeight: FontWeight.w400),
+                  ),
+                  const Spacer(),
+                  TextButton(
+                      onPressed: () {
+                        UserCubit.get(context).getUserData();
+                      },
+                      child: Text(
+                        'see all',
+                        style: textStyleOutfit.copyWith(
+                            fontSize: 14.sp,
+                            fontWeight: FontWeight.w300,
+                            color: const Color(0xff8C8C8C),
+                            decoration: TextDecoration.underline,
+                            decorationColor: const Color(0xff8C8C8C)),
+                      ))
+                ],
+              ),
+              SizedBox(
+                height: 16.h,
+              ),
+              // ItemCardCategory(
+              //   text: 'Constructions', idUser: UserCubit.get(context).userModel!.id.toString(),
+              // ),
+              // SizedBox(
+              //   height: 16.h,
+              // ),
+              // const ItemCardCategory(
+              //   assetName: Assets.imagesInsurances,
+              //   text: 'Insurances',
+              // ),
+              // SizedBox(
+              //   height: 16.h,
+              // ),
+              // const ItemCardCategory(
+              //   assetName: Assets.imagesLegal,
+              //   text: 'Legal',
+              // ),
+              // SizedBox(
+              //   height: 16.h,
+              // ),
+              // const ItemCardCategory(
+              //   assetName: Assets.imagesServices,
+              //   text: 'Buy & Sell',
+              // ),
+              // SizedBox(
+              //   height: 16.h,
+              // ),
+              // const ItemCardCategory(
+              //   assetName: Assets.imagesAccountingServices,
+              //   text: 'Accounting Services',
+              // )
             ],
-          ),
-          SizedBox(
-            height: 16.h,
-          ),
-          const ItemCardCategory(
-            assetName: Assets.imagesConstructions,
-            text: 'Constructions',
-          ),
-          SizedBox(
-            height: 16.h,
-          ),
-          const ItemCardCategory(
-            assetName: Assets.imagesInsurances,
-            text: 'Insurances',
-          ),
-          SizedBox(
-            height: 16.h,
-          ),
-          const ItemCardCategory(
-            assetName: Assets.imagesLegal,
-            text: 'Legal',
-          ),
-          SizedBox(
-            height: 16.h,
-          ),
-          const ItemCardCategory(
-            assetName: Assets.imagesServices,
-            text: 'Buy & Sell',
-          ),
-          SizedBox(
-            height: 16.h,
-          ),
-          const ItemCardCategory(
-            assetName: Assets.imagesAccountingServices,
-            text: 'Accounting Services',
-          )
-        ],
+          );
+        },
       ),
     );
   }
 }
 
 class ItemCardCategory extends StatelessWidget {
-  final String assetName;
   final String text;
+  final String idUser;
+
   const ItemCardCategory({
     super.key,
-    required this.assetName,
     required this.text,
+    required this.idUser,
   });
 
   @override
@@ -95,11 +105,7 @@ class ItemCardCategory extends StatelessWidget {
         padding: const EdgeInsets.all(8.0),
         child: Row(
           children: [
-            SvgPicture.asset(
-              assetName,
-              height: 28.h,
-              width: 28.w,
-            ),
+            Text(idUser),
             SizedBox(
               width: 12.w,
             ),
