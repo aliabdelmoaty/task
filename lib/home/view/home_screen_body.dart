@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:task/constants/assets.dart';
 import 'package:task/constants/constants.dart';
-import 'package:task/home/view/custom_Tab_Bar.dart';
+import 'package:task/home/view/custom_tab_bar.dart';
 import 'package:task/home/view/onBorder.dart';
 
 class HomeScreenBody extends StatelessWidget {
