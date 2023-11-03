@@ -6,3 +6,4 @@ TextStyle textStyleOutfit = TextStyle(
     fontSize: 20.sp,
     fontFamily: 'Outfit',
     color: const Color(0xff101010));
+String endPointUser = 'users';
