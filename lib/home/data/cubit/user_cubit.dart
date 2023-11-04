@@ -1,4 +1,3 @@
-import 'package:bloc/bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';
 import 'package:task/constants/constants.dart';
@@ -11,15 +10,18 @@ class UserCubit extends Cubit<UserState> {
   UserCubit() : super(UserInitial());
   static UserCubit get(context) => BlocProvider.of(context);
   List<UserModel>? userModel = [];
-  Future<void> getUserData() async {
+  void getUserData() {
     emit(GetUserLoading());
-    DioHelper.getData(endPoint: endPointUser).then((value) {
+    DioHelper.getData(
+      endPoint: endPointUser,
+    ).then((value) {
       for (var e in value) {
         userModel?.add(UserModel.fromJson(e));
       }
       emit(GetUserSuccess());
+      for (int i = 0; i < 10; i++) {}
     }).catchError((e) {
-      print(e.toString());
+      print('error $e');
       emit(GetUserError(e.toString()));
     });
   }

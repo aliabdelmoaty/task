@@ -30,7 +30,7 @@ class _CustomTabBarState extends State<CustomTabBar>
   Widget build(BuildContext context) {
     return SizedBox(
       height: selectedChoice == 'Categories'
-          ? 470.h
+          ? 665.h
           : selectedChoice == 'Service'
               ? 100.h
               : selectedChoice == 'Order'
@@ -97,10 +97,10 @@ class _CustomTabBarState extends State<CustomTabBar>
             child: TabBarView(
               physics: const NeverScrollableScrollPhysics(),
               controller: _tabController,
-              children: [
-                SizedBox(height: 150.h, child: const CategoryScreen()),
-                const Service(),
-                const Order(),
+              children: const [
+                CategoryScreen(),
+                Service(),
+                Order(),
               ],
             ),
           ),

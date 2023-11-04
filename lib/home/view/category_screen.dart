@@ -6,91 +6,83 @@ import 'package:task/constants/constants.dart';
 import 'package:task/home/data/cubit/user_cubit.dart';
 
 class CategoryScreen extends StatelessWidget {
-  const CategoryScreen({super.key});
+  const CategoryScreen({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      physics: const NeverScrollableScrollPhysics(),
-      child: BlocConsumer<UserCubit, UserState>(
-        listener: (context, state) {
-          // TODO: implement listener
-        },
-        builder: (context, state) {
-          return Column(
-            children: [
-              Row(
-                children: [
-                  Text(
-                    'Categories View',
-                    style: textStyleOutfit.copyWith(
-                        fontSize: 14.sp, fontWeight: FontWeight.w400),
+        physics: const NeverScrollableScrollPhysics(),
+        child: BlocConsumer<UserCubit, UserState>(listener: (context, state) {
+          if (state is GetUserError) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text(state.e),
+              ),
+            );
+          }
+        }, builder: (context, state) {
+          if (state is GetUserSuccess) {
+            return Column(
+              children: [
+                Row(
+                  children: [
+                    Text(
+                      'Categories View',
+                      style: textStyleOutfit.copyWith(
+                          fontSize: 14.sp, fontWeight: FontWeight.w400),
+                    ),
+                    const Spacer(),
+                    TextButton(
+                        onPressed: () {
+                          UserCubit.get(context).getUserData();
+                        },
+                        child: Text(
+                          'see all',
+                          style: textStyleOutfit.copyWith(
+                              fontSize: 14.sp,
+                              fontWeight: FontWeight.w300,
+                              color: const Color(0xff8C8C8C),
+                              decoration: TextDecoration.underline,
+                              decorationColor: const Color(0xff8C8C8C)),
+                        ))
+                  ],
+                ),
+                SizedBox(
+                  height: 16.h,
+                ),
+                SizedBox(
+                  height: 600.h,
+                  child: ListView.builder(
+                    physics: const NeverScrollableScrollPhysics(),
+                    itemCount: UserCubit.get(context).userModel!.length,
+                    itemBuilder: (context, index) => ItemCardCategory(
+                        name: UserCubit.get(context).userModel![index].name!,
+                        idUser: UserCubit.get(context)
+                            .userModel![index]
+                            .id
+                            .toString()),
                   ),
-                  const Spacer(),
-                  TextButton(
-                      onPressed: () {
-                        UserCubit.get(context).getUserData();
-                      },
-                      child: Text(
-                        'see all',
-                        style: textStyleOutfit.copyWith(
-                            fontSize: 14.sp,
-                            fontWeight: FontWeight.w300,
-                            color: const Color(0xff8C8C8C),
-                            decoration: TextDecoration.underline,
-                            decorationColor: const Color(0xff8C8C8C)),
-                      ))
-                ],
-              ),
-              SizedBox(
-                height: 16.h,
-              ),
-              // ItemCardCategory(
-              //   text: 'Constructions', idUser: UserCubit.get(context).userModel!.id.toString(),
-              // ),
-              // SizedBox(
-              //   height: 16.h,
-              // ),
-              // const ItemCardCategory(
-              //   assetName: Assets.imagesInsurances,
-              //   text: 'Insurances',
-              // ),
-              // SizedBox(
-              //   height: 16.h,
-              // ),
-              // const ItemCardCategory(
-              //   assetName: Assets.imagesLegal,
-              //   text: 'Legal',
-              // ),
-              // SizedBox(
-              //   height: 16.h,
-              // ),
-              // const ItemCardCategory(
-              //   assetName: Assets.imagesServices,
-              //   text: 'Buy & Sell',
-              // ),
-              // SizedBox(
-              //   height: 16.h,
-              // ),
-              // const ItemCardCategory(
-              //   assetName: Assets.imagesAccountingServices,
-              //   text: 'Accounting Services',
-              // )
-            ],
-          );
-        },
-      ),
-    );
+                )
+              ],
+            );
+          } else {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+        }));
   }
 }
 
 class ItemCardCategory extends StatelessWidget {
-  final String text;
+  final String name;
   final String idUser;
 
   const ItemCardCategory({
     super.key,
-    required this.text,
+    required this.name,
     required this.idUser,
   });
 
@@ -105,12 +97,16 @@ class ItemCardCategory extends StatelessWidget {
         padding: const EdgeInsets.all(8.0),
         child: Row(
           children: [
-            Text(idUser),
+            Text(
+              '$idUser.',
+              style: textStyleOutfit.copyWith(
+                  fontSize: 16.sp, fontWeight: FontWeight.w400),
+            ),
             SizedBox(
               width: 12.w,
             ),
             Text(
-              text,
+              name,
               style: textStyleOutfit.copyWith(
                   fontSize: 16.sp, fontWeight: FontWeight.w400),
             ),

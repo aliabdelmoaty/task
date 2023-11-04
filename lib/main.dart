@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:task/constants/bloc_observer.dart';
 import 'package:task/home/data/cubit/user_cubit.dart';
 import 'package:task/home/view/home_screen.dart';
 
 // ignore: depend_on_referenced_packages
 
-void main() {
+void main() async {
+  Bloc.observer = MyBlocObserver();
   runApp(const MyApp());
 }
 
@@ -21,18 +22,15 @@ class MyApp extends StatelessWidget {
         minTextAdapt: true,
         splitScreenMode: true,
         builder: (_, child) {
-          SystemChrome.setSystemUIOverlayStyle(
-              const SystemUiOverlayStyle(statusBarColor: Colors.white));
           return BlocProvider(
-            create: (context) => UserCubit()..getUserData(),
-            child: MaterialApp(
-              theme: ThemeData(
-                scaffoldBackgroundColor: Colors.white,
-              ),
-              debugShowCheckedModeBanner: false,
-              home: const HomeScreen(),
-            ),
-          );
+              create: (_) => UserCubit()..getUserData(),
+              child: MaterialApp(
+                theme: ThemeData(
+                  scaffoldBackgroundColor: Colors.white,
+                ),
+                debugShowCheckedModeBanner: false,
+                home: const HomeScreen(),
+              ));
         });
   }
 }
